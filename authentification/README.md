@@ -32,6 +32,44 @@ public boolean authenticate(String password) /* Vérifie si le mot de passe four
 public abstract boolean hasPermission(Permission permission) /* Vérifie si l'utilisateur a la permission spécifiée */
 ```
 
+Le calcul de la valeur de hachage se fera à l'aide de la méthode privée :
+
+```java
+// Dans la classe User:
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.nio.charset.StandardCharsets;
+
+private String hashPassword(String password) {
+    try {
+        /* Utiliser l'algorithme SHA-256 */
+        MessageDigest digest = MessageDigest.getInstance("SHA-256");
+        
+        /* Appliquer l'algorithme au mot de passe */
+        byte[] hashBytes = digest.digest(password.getBytes(StandardCharsets.UTF_8));
+        
+        /* Convertir le tableau d'octets en représentation hexadécimale */
+        StringBuilder hexString = new StringBuilder();
+        for (byte b : hashBytes) {
+            String hex = Integer.toHexString(0xff & b);
+            if (hex.length() == 1) {
+                hexString.append('0');
+            }
+            hexString.append(hex);
+        }
+        
+        return hexString.toString();
+        
+    } catch (NoSuchAlgorithmException e) {
+        /*
+         * Dans un système réel, il faudrait gérer cette exception correctement
+         * Pour cet exercice, une simple conversion en RuntimeException est suffisante
+         */
+        throw new RuntimeException("Algorithme de hachage non disponible", e);
+    }
+}
+```
+
 ### 2. Enum `Permission`
 
 Créez une énumération `Permission` qui définit les niveaux d'accès suivants :
@@ -93,9 +131,8 @@ Créez une classe d'exception personnalisée qui :
 ## Conseils d'implémentation
 
 1. La classe `java.util.UUID` permet de générer des identifiants uniques.
-2. La classe `MessageDigest` permet d'implémenter le hachage SHA-256.
-3. Assurez-vous que votre système empêche les doublons de noms d'utilisateurs.
-4. Vérifiez le bon fonctionnement de votre système à l'aide des tests fournis.
+2. Assurez-vous que votre système empêche les doublons de noms d'utilisateurs.
+3. Vérifiez le bon fonctionnement de votre système à l'aide des tests fournis.
 
 ## Références
 
