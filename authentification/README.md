@@ -92,10 +92,19 @@ Créez une classe d'exception personnalisée qui :
 
 ## Conseils d'implémentation
 
-1. Utilisez la classe `java.util.UUID` pour générer des identifiants uniques.
+1. Utilisez la classe `java.util.UUID` pour générer des identifiants uniques (voir : https://www.tutorialspoint.com/java/util/java_util_uuid.htm).
 2. Utilisez `MessageDigest` de Java pour implémenter le hachage SHA-256.
-3. Pensez à l'encapsulation
-4. Assurez-vous que votre système empêche les doublons de noms d'utilisateurs.
-6. Vérifiez le bon fonctionnement de votre système à l'aide des tests fournis.
+3. Assurez-vous que votre système empêche les doublons de noms d'utilisateurs.
+4. Vérifiez le bon fonctionnement de votre système à l'aide des tests fournis.
 
+## Références
 
+### UUID
+
+1. [Documentation officielle Java](https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html)
+2. [tutorialspoints.com](https://www.tutorialspoint.com/java/util/java_util_uuid.htm)
+
+### MessageDigest
+
+1. [Documentation officielle Java](https://docs.oracle.com/javase/8/docs/api/java/security/MessageDigest.html)
+2. [tutorialspoints.com](https://www.tutorialspoint.com/java_cryptography/java_cryptography_message_digest.htm)
