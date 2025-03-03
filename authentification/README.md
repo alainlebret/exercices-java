@@ -22,7 +22,7 @@ Créez une classe abstraite `User` qui :
 - stocke le nom de l'utilisateur (`username`), la valeur de hachage du mot de passe (`passwordHash`), et un identifiant unique (`userId`) ;
 - fournit des fonctionnalités d'authentification au travers de la méthode `authenticate()` ;
 - possède une méthode abstraite pour la vérification des permissions `hasPermission(Permission permission)` ;
-- utilise l'algorithme SHA-256 pour hacher les mots de passe ;
+- utilise l'algorithme [SHA-256](https://fr.wikipedia.org/wiki/SHA-2) pour hacher les mots de passe ;
 - implémente un constructeur qui prend en paramètre un nom d'utilisateur et un mot de passe.
 
 **Méthodes importantes** :
@@ -92,8 +92,8 @@ Créez une classe d'exception personnalisée qui :
 
 ## Conseils d'implémentation
 
-1. Utilisez la classe `java.util.UUID` pour générer des identifiants uniques (voir : https://www.tutorialspoint.com/java/util/java_util_uuid.htm).
-2. Utilisez `MessageDigest` de Java pour implémenter le hachage SHA-256.
+1. La classe `java.util.UUID` permet de générer des identifiants uniques.
+2. La classe `MessageDigest` permet d'implémenter le hachage SHA-256.
 3. Assurez-vous que votre système empêche les doublons de noms d'utilisateurs.
 4. Vérifiez le bon fonctionnement de votre système à l'aide des tests fournis.
 
