@@ -9,44 +9,9 @@ exceptions pour les problèmes liés à la sécurité.
 
 ## Diagramme de classes
 
-```
-@startuml
-abstract class User {
-  -String username
-  -String passwordHash
-  -UUID userId
-  +boolean authenticate(String password)
-  +{abstract} boolean hasPermission(Permission permission)
-}
+Les classes à définir pour ce système sont les suivantes : 
 
-class Admin extends User {
-  +boolean hasPermission(Permission permission)
-}
-
-class RegularUser extends User {
-  +boolean hasPermission(Permission permission)
-}
-
-class AuthenticationService {
-  -List<User> users
-  +User authenticate(String username, String password) throws SecurityException
-  +void registerUser(User user)
-}
-
-enum Permission {
-  READ
-  WRITE
-  EXECUTE
-  ADMIN
-}
-
-class SecurityException extends Exception {
-  +SecurityException(String message)
-}
-
-AuthenticationService o-- User
-@enduml
-```
+![Diagramme de classes pour l'authentification](authentification.svg)
 
 ## Travail demandé
 
@@ -60,11 +25,11 @@ Créez une classe abstraite `User` qui :
 - utilise l'algorithme SHA-256 pour hacher les mots de passe ;
 - implémente un constructeur qui prend en paramètre un nom d'utilisateur et un mot de passe.
 
-**Méthodes importantes:**
+**Méthodes importantes** :
 
 ```java
-public boolean authenticate(String password) // Vérifie si le mot de passe fourni correspond au hash stocké
-public abstract boolean hasPermission(Permission permission) // Vérifie si l'utilisateur a la permission spécifiée
+public boolean authenticate(String password) /* Vérifie si le mot de passe fourni correspond au hash stocké */
+public abstract boolean hasPermission(Permission permission) /* Vérifie si l'utilisateur a la permission spécifiée */
 ```
 
 ### 2. Enum `Permission`
@@ -76,9 +41,9 @@ Créez une énumération `Permission` qui définit les niveaux d'accès suivants
 - `EXECUTE` : permission d'exécution ;
 - `ADMIN` : permission d'administration (niveau le plus élevé).
 
-### 3. Classes concrètes d'utilisateurs
+### 3. Classes d'utilisateurs
 
-Implémentez deux classes concrètes qui héritent de `User` :
+Implémentez deux classes qui héritent de `User` :
 
 #### `Admin`
 
@@ -99,16 +64,20 @@ Implémentez une classe de service qui :
 - Permet d'authentifier les utilisateurs existants ;
 - lance des exceptions appropriées pour les problèmes de sécurité.
 
-**Méthodes importantes :**
+**Méthodes importantes** :
 
 ```java
+/*
+ * Authentifie un utilisateur en vérifiant son nom d'utilisateur et son mot de passe.
+ * Lance une SecurityException si l'authentification échoue.
+ */
 public User authenticate(String username, String password) throws SecurityException
-// Authentifie un utilisateur en vérifiant son nom d'utilisateur et son mot de passe
-// Lance une SecurityException si l'authentification échoue
 
+/*
+ * Enregistre un nouvel utilisateur.
+ * Vérifie si le nom d'utilisateur existe déjà.
+ */
 public void registerUser(User user)
-// Enregistre un nouvel utilisateur
-// Vérifie si le nom d'utilisateur existe déjà
 ```
 
 ### 5. Classe `SecurityException`
@@ -125,6 +94,8 @@ Créez une classe d'exception personnalisée qui :
 
 1. Utilisez la classe `java.util.UUID` pour générer des identifiants uniques.
 2. Utilisez `MessageDigest` de Java pour implémenter le hachage SHA-256.
-3. Pensez à l'encapsulation: rendez privés tous les attributs qui ne doivent pas être modifiés directement.
+3. Pensez à l'encapsulation
 4. Assurez-vous que votre système empêche les doublons de noms d'utilisateurs.
-5. Vérifiez le bon fonctionnement de votre système à l'aide des tests fournis.
+6. Vérifiez le bon fonctionnement de votre système à l'aide des tests fournis.
+
+
