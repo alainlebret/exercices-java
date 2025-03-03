@@ -99,12 +99,9 @@ Créez une classe d'exception personnalisée qui :
 
 ## Références
 
-### UUID
-
-1. [Documentation officielle Java](https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html)
-2. [tutorialspoints.com](https://www.tutorialspoint.com/java/util/java_util_uuid.htm)
-
-### MessageDigest
-
-1. [Documentation officielle Java](https://docs.oracle.com/javase/8/docs/api/java/security/MessageDigest.html)
-2. [tutorialspoints.com](https://www.tutorialspoint.com/java_cryptography/java_cryptography_message_digest.htm)
+1. **`UUID`**
+   - [Documentation officielle Java](https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html)
+   - [tutorialspoints.com](https://www.tutorialspoint.com/java/util/java_util_uuid.htm)
+2. **`MessageDigest`**
+   - [Documentation officielle Java](https://docs.oracle.com/javase/8/docs/api/java/security/MessageDigest.html)
+   - [tutorialspoints.com](https://www.tutorialspoint.com/java_cryptography/java_cryptography_message_digest.htm)
