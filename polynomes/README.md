@@ -8,7 +8,7 @@ la multiplication, et la dérivation de polynômes tout en respectant les règle
 
 ## Diagramme de classes
 
-Les classes à définir sont 
+Les classes à définir pour ce système sont les suivantes :
 
 [Diagramme de classes des polynomes](polynome.svg)
 
@@ -26,16 +26,16 @@ Créez une classe `Term` qui :
 **Méthodes importantes** :
 
 ```java
-public Term multiplyBy(Term other) // Multiplie le terme courant par un autre et retourne un nouveau terme
-public String toString() // Retourne une représentation textuelle du terme (ex : "3.0x^2")
+public Term multiplyBy(Term other) /* Multiplie le terme courant par un autre et retourne un nouveau terme */
+public String toString() /* Retourne une représentation textuelle du terme (ex : "3.0x^2") */
 ```
 
 **Règles de représentation textuelle** :
 
-- Si le coefficient est 0, retournez simplement "0"
-- Si l'exposant est 0, retournez seulement le coefficient (ex: "5.0")
-- Si le coefficient est 1 et l'exposant > 0, ne pas afficher le coefficient (ex: "x^2" au lieu de "1.0x^2")
-- Si l'exposant est 1, ne pas afficher l'exposant (ex: "3.0x" au lieu de "3.0x^1")
+- Si le coefficient est 0, retournez simplement "0".
+- Si l'exposant est 0, retournez seulement le coefficient (ex: "5.0").
+- Si le coefficient est 1 et l'exposant > 0, ne pas afficher le coefficient (ex: "x^2" au lieu de "1.0x^2").
+- Si l'exposant est 1, ne pas afficher l'exposant (ex: "3.0x" au lieu de "3.0x^1").
 
 ### 2. Classe `Polynomial`
 
@@ -49,31 +49,31 @@ Implémentez une classe `Polynomial` qui :
 **Méthodes importantes** :
 
 ```java
-public void addTerm(Term term) // Ajoute un terme au polynôme, en combinant si nécessaire
-public List<Term> getTerms() // Retourne une copie de la liste des termes
-public String toString() // Retourne une représentation textuelle du polynôme (ex: "3.0x^2 + 2.0x + 1.0")
+public void addTerm(Term term) /* Ajoute un terme au polynôme, en combinant si nécessaire */
+public List<Term> getTerms() /* Retourne une copie de la liste des termes */
+public String toString() /* Retourne une représentation textuelle du polynôme (ex: "3.0x^2 + 2.0x + 1.0") */
 ```
 
-**Règles pour la méthode addTerm** :
+**Règles pour la méthode addTerm()** :
 
-- Si un terme avec le même exposant existe déjà, combinez les coefficients
-- Si la combinaison résulte en un coefficient de 0, supprimez le terme
-- N'ajoutez pas de termes avec un coefficient de 0
+- Si un terme avec le même exposant existe déjà, combinez les coefficients.
+- Si la combinaison résulte en un coefficient de 0, supprimez le terme.
+- N'ajoutez pas de termes avec un coefficient de 0.
 
 ### 3. Classe abstraite `MathOperation<T>`
 
 Créez une classe abstraite `MathOperation<T>` qui :
 
-- Définit une interface générique pour les opérations mathématiques
-- Utilise les génériques Java pour permettre la réutilisation du code
-- Déclare des méthodes abstraites pour les opérations fondamentales
+- définit une interface générique pour les opérations mathématiques ;
+- utilise les génériques Java pour permettre la réutilisation du code ;
+- déclare des méthodes abstraites pour les opérations fondamentales.
 
 **Méthodes abstraites** :
 
 ```java
-public abstract T add(T a, T b)      // Addition de deux objets de type T
-public abstract T subtract(T a, T b) // Soustraction de deux objets de type T
-public abstract T multiply(T a, T b) // Multiplication de deux objets de type T
+public abstract T add(T a, T b)      /* Addition de deux objets de type T */
+public abstract T subtract(T a, T b) /* Soustraction de deux objets de type T */
+public abstract T multiply(T a, T b) /* Multiplication de deux objets de type T */
 ```
 
 ### 4. Classe `PolynomialOperation`
@@ -87,11 +87,11 @@ Implémentez une classe `PolynomialOperation` qui :
 
 ```java
 @Override
-public Polynomial add(Polynomial a, Polynomial b) // Addition de deux polynômes
+public Polynomial add(Polynomial a, Polynomial b) /* Addition de deux polynômes */
 @Override
-public Polynomial subtract(Polynomial a, Polynomial b) // Soustraction de deux polynômes
+public Polynomial subtract(Polynomial a, Polynomial b) /* Soustraction de deux polynômes */
 @Override
-public Polynomial multiply(Polynomial a, Polynomial b) // Multiplication de deux polynômes
+public Polynomial multiply(Polynomial a, Polynomial b) /* Multiplication de deux polynômes */
 ```
 
 **Règles** :
@@ -104,7 +104,7 @@ public Polynomial multiply(Polynomial a, Polynomial b) // Multiplication de deux
 
 Créez une classe d'exception personnalisée `MathException` qui :
 
-- hérite de la classe `Exception`.
+- hérite de la classe `Exception` ;
 - permet de signaler des erreurs mathématiques spécifiques.
 
 ## Implémentation
