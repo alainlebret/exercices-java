@@ -1,48 +1,16 @@
-# Exercice 2 : Polynomes
+# Exercice 2 : Polynômes
 
 ## Objectif
 
 Implémenter un système permettant de représenter et d'effectuer des opérations sur des polynômes. 
 Le système devra gérer les opérations algébriques de base telles que l'addition, la soustraction
-et la multiplication de polynômes, tout en respectant les règles mathématiques appropriées.
+la multiplication, et la dérivation de polynômes tout en respectant les règles mathématiques appropriées.
 
 ## Diagramme de classes
 
-```
-@startuml
-class Term {
-  -double coefficient
-  -int exponent
-  +double getCoefficient()
-  +int getExponent()
-  +Term multiplyBy(Term other)
-}
+Les classes à définir sont 
 
-class Polynomial {
-  -List<Term> terms
-  +void addTerm(Term term)
-  +List<Term> getTerms()
-}
-
-abstract class MathOperation<T> {
-  +{abstract} T add(T a, T b)
-  +{abstract} T subtract(T a, T b)
-  +{abstract} T multiply(T a, T b)
-}
-
-class PolynomialOperation extends MathOperation<Polynomial> {
-  +Polynomial add(Polynomial a, Polynomial b)
-  +Polynomial subtract(Polynomial a, Polynomial b)
-  +Polynomial multiply(Polynomial a, Polynomial b)
-}
-
-class MathException extends Exception {
-  +MathException(String message)
-}
-
-Polynomial o-- Term
-@enduml
-```
+[Diagramme de classes des polynomes](polynome.svg)
 
 ## Description
 
