@@ -32,10 +32,9 @@ public boolean authenticate(String password) /* Vérifie si le mot de passe four
 public abstract boolean hasPermission(Permission permission) /* Vérifie si l'utilisateur a la permission spécifiée */
 ```
 
-Le calcul de la valeur de hachage se fera à l'aide de la méthode privée :
+Le calcul de la valeur de hachage se fera à l'aide de la méthode privée `hashPassword()` suivante :
 
 ```java
-// Dans la classe User:
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.nio.charset.StandardCharsets;
