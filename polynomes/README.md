@@ -10,7 +10,7 @@ la multiplication, et la dérivation de polynômes tout en respectant les règle
 
 Les classes à définir pour ce système sont les suivantes :
 
-[Diagramme de classes des polynomes](polynome.svg)
+[Diagramme de classes des polynomes](polynomes/polynome.svg)
 
 ## Description
 
