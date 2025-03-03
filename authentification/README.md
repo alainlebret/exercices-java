@@ -96,8 +96,7 @@ Implémentez deux classes qui héritent de `User` :
 
 Implémentez une classe de service qui :
 
-- gère une liste d'utilisateurs ;
-- permet d'enregistrer de nouveaux utilisateurs ;
+- gère un tableau allant jusqu'à 10 utilisateurs ;
 - Permet d'authentifier les utilisateurs existants ;
 - lance des exceptions appropriées pour les problèmes de sécurité.
 
